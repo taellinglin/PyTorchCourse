@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import datasets, transforms
+import matplotlib.pyplot as plt  # Added import for plotting
 
 # Final Project: Convolutional Neural Network for MNIST Classification
 class FinalCNN(nn.Module):
@@ -34,6 +35,22 @@ def train_model(model, criterion, optimizer, train_loader, epochs=5):
             optimizer.step()
         print(f'Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}')
 
+    # Visualizing a few test images and their predicted labels
+    model.eval()
+    with torch.no_grad():
+        test_images, test_labels = next(iter(train_loader))
+        test_outputs = model(test_images)
+        _, predicted = torch.max(test_outputs, 1)
+
+        # Plotting the images and their predicted labels
+        plt.figure(figsize=(12, 6))
+        for i in range(6):
+            plt.subplot(2, 3, i + 1)
+            plt.imshow(test_images[i].squeeze(), cmap='gray')
+            plt.title(f'Predicted: {predicted[i].item()}')
+            plt.axis('off')
+        plt.show()
+
 # Example Usage
 if __name__ == "__main__":
     # MNIST Dataset
@@ -45,4 +62,4 @@ if __name__ == "__main__":
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=0.01)
 
-    train_model(model, criterion, optimizer, train_loader)
+    train_model(model, criterion, optimizer, train_loader)  # Call the function

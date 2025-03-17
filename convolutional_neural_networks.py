@@ -33,13 +33,35 @@ def train_model(model, criterion, optimizer, x_train, y_train, epochs=100):
         if (epoch+1) % 10 == 0:
             print(f'Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}')
 
+import matplotlib.pyplot as plt  # Added import for plotting
+
 # Example Usage
 if __name__ == "__main__":
     # Sample Data
     x_train = torch.randn(100, 1, 28, 28)  # Example for MNIST
     y_train = torch.randint(0, 10, (100,))
 
+    # Plotting the input data
+    for i in range(6):
+        plt.subplot(2, 3, i + 1)
+        plt.imshow(x_train[i].squeeze(), cmap='gray')
+        plt.title(f'Label: {y_train[i].item()}')
+        plt.axis('off')
+    plt.show()
+
+
     model = ConvolutionalNeuralNetwork()
+
+    # Plotting the predictions
+    y_pred = model(x_train).detach().numpy()
+    plt.figure(figsize=(12, 6))
+    for i in range(6):
+        plt.subplot(2, 3, i + 1)
+        plt.imshow(x_train[i].squeeze(), cmap='gray')
+        plt.title(f'Predicted: {np.argmax(y_pred[i])}')
+        plt.axis('off')
+    plt.show()
+
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=0.01)
 

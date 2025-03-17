@@ -23,13 +23,34 @@ def train_model(model, criterion, optimizer, x_train, y_train, epochs=100):
         if (epoch+1) % 10 == 0:
             print(f'Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}')
 
+import matplotlib.pyplot as plt  # Added import for plotting
+
 # Example Usage
 if __name__ == "__main__":
     # Sample Data
     x_train = torch.randn(100, 2)
     y_train = torch.randint(0, 2, (100,))
 
+    # Plotting the input data
+    plt.scatter(x_train[:, 0], x_train[:, 1], c=y_train.numpy(), cmap='viridis')
+    plt.title('Softmax Regression Input Data')
+    plt.xlabel('Input Feature 1')
+    plt.ylabel('Input Feature 2')
+    plt.colorbar(label='Output Class')
+    plt.show()
+
+
     model = SoftmaxRegressionModel(input_size=2, num_classes=2)
+
+    # Plotting the predictions
+    y_pred = model(x_train).detach().numpy()
+    plt.scatter(x_train[:, 0], x_train[:, 1], c=np.argmax(y_pred, axis=1), cmap='viridis')
+    plt.title('Softmax Regression Predictions')
+    plt.xlabel('Input Feature 1')
+    plt.ylabel('Input Feature 2')
+    plt.colorbar(label='Predicted Class')
+    plt.show()
+
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=0.01)
 
