@@ -30,7 +30,7 @@ class FinalCNN(nn.Module):
         return x
 
 
-# Print activation details once
+# One-time activation details display
 def print_activation_details(model, sample_batch):
     """Print activation map sizes once before training."""
     with torch.no_grad():
@@ -62,9 +62,6 @@ def print_activation_details(model, sample_batch):
         print(f"Output (Logits): {x.shape}\n")
 
 
-
-
-
 # Display sample predictions
 def display_predictions(model, data_loader, num_samples=6):
     """Displays sample images with predicted labels"""
@@ -87,6 +84,52 @@ def display_predictions(model, data_loader, num_samples=6):
     plt.show()
 
 
+# Training function with PyTorch functions
+def train_model(model, criterion, optimizer, train_loader, epochs=5):
+    """Train the CNN using PyTorch functions"""
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+
+    losses = []
+    accuracies = []
+
+    for epoch in range(epochs):
+        model.train()
+        
+        running_loss = 0.0
+        correct = 0
+        total = 0
+
+        for images, labels in tqdm(train_loader, desc=f"Epoch {epoch + 1}/{epochs}"):
+            images, labels = images.to(device), labels.to(device)
+
+            # Forward pass
+            optimizer.zero_grad()
+            outputs = model(images)
+            loss = criterion(outputs, labels)
+
+            # Backward pass
+            loss.backward()
+            optimizer.step()
+
+            # Loss and accuracy tracking
+            running_loss += loss.item()
+
+            _, predicted = torch.max(outputs, 1)
+            correct += (predicted == labels).sum().item()
+            total += labels.size(0)
+
+        epoch_loss = running_loss / len(train_loader)
+        epoch_accuracy = 100 * correct / total
+
+        losses.append(epoch_loss)
+        accuracies.append(epoch_accuracy)
+
+        print(f"Epoch [{epoch+1}/{epochs}] | Loss: {epoch_loss:.4f} | Accuracy: {epoch_accuracy:.2f}%")
+
+    return losses, accuracies
+
+
 # MNIST Dataset and Loader
 transform = transforms.Compose([transforms.ToTensor()])
 train_dataset = datasets.MNIST(root='./data', train=True, transform=transform, download=True)
@@ -97,8 +140,11 @@ model = FinalCNN()
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=0.01)
 
-# Train the Model
-losses, accuracies = train_model(model, criterion, optimizer, train_loader, epochs=5)
+# Print activation details before training
+print_activation_details(model, next(iter(train_loader))[0])
+
+# Train the model
+losses, accuracies = train_model(model, criterion, optimizer, train_loader, epochs=32)
 
 # Display sample predictions
 display_predictions(model, train_loader)
