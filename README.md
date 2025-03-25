@@ -40,9 +40,9 @@ Imagine you are playing a **guessing game** with a 🦉 **wise owl**.
 Imagine you have a bag of colorful candies. Each candy represents a possible answer (like cat, dog, or bird). The **Softmax function** is like a magical machine that takes all the candies and tells you the **probability** of each one being picked. 
 
 For example:
-- 🍬 **Cat** → 70% chance  
-- 🍬 **Dog** → 20% chance  
-- 🍬 **Bird** → 10% chance  
+- 🍬?->😺 **Cat** → 70% chance  
+- 🍬?->🐶**Dog** → 20% chance  
+- 🍬?->🐦 **Bird** → 10% chance  
 
 Softmax makes sure that all the probabilities add up to **100%** (because one of them will definitely be the right answer).
 
