@@ -602,4 +602,4 @@ A CNN can learn to **recognize different anime characters** just like it can rec
 - **See how it learns to recognize different characters.** 🔎  
 - **Understand how AI can analyze images of handwritten numbers!** 🚀  
 
-By the end, we’ll see how **computers can recognize anime characters just like we do!** 🧠✨  
+By the end, we’ll see how **computers can recognize handwritten characters just like we do!** 🧠✨  
