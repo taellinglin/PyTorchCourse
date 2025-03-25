@@ -598,7 +598,7 @@ Anime images are **unique** because they have:
 A CNN can learn to **recognize different anime characters** just like it can recognize real-world objects!  
 
 ## 3️⃣ What Will We Do in This Notebook? 📝  
-- **Train a CNN to classify anime images.** 🏗️  
+- **Train a CNN to classify images of handwritten numbers.** 🏗️  
 - **See how it learns to recognize different characters.** 🔎  
 - **Understand how AI can analyze anime art!** 🚀  
 
