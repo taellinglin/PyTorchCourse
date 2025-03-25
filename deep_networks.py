@@ -16,7 +16,8 @@ class DeepNeuralNetwork(nn.Module):
         self.model = nn.Sequential(*layers)
 
     def forward(self, x):
-        return self.model(x)
+        return x  # Return raw output without applying softmax
+
 
 # Training Function
 def train_model(model, criterion, optimizer, x_train, y_train, epochs=100):

@@ -19,7 +19,8 @@ class ConvolutionalNeuralNetwork(nn.Module):
         x = x.view(-1, 32 * 4 * 4)
         x = torch.relu(self.fc1(x))
         x = torch.relu(self.fc2(x))
-        return self.fc3(x)
+        return x  # Return raw output without applying softmax
+
 
 # Training Function
 def train_model(model, criterion, optimizer, x_train, y_train, epochs=100):

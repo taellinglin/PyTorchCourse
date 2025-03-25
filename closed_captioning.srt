@@ -1,0 +1,89 @@
+1
+00:00:00,000 --> 00:00:20,000
+What is Logistic Regression?
+Imagine you have a robot that tries to guess if a fruit is an apple or a banana. The robot uses Logistic Regression to make its guess.
+
+2
+00:00:20,000 --> 00:00:40,000
+What does the notebook do?
+It creates pretend fruits with made-up colors and sizes, builds the Logistic Regression model, trains the robot, and shows why bad initialization is bad.
+
+3
+00:00:40,000 --> 00:01:00,000
+What is Cross-Entropy?
+Cross-Entropy is like a scorekeeper in a guessing game. If the owl guesses correctly, it gets a low score, and if wrong, a high score.
+
+4
+00:01:00,000 --> 00:01:20,000
+What is Softmax?
+The Softmax function takes all possible answers and tells you the probability of each one being picked, ensuring they add up to 100%.
+
+5
+00:01:20,000 --> 00:01:40,000
+Understanding Softmax and MNIST
+We want to teach a computer how to recognize numbers by looking at images. MNIST is a big collection of handwritten numbers.
+
+6
+00:01:40,000 --> 00:02:00,000
+What is a Softmax Classifier?
+A Softmax Classifier checks how sure it is that the number is a 0, 1, 2, etc., and picks the number it is most confident about.
+
+7
+00:02:00,000 --> 00:02:20,000
+How do we train the computer?
+We show the computer many images of numbers, it tries to guess, and if wrong, we correct it to help it learn.
+
+8
+00:02:20,000 --> 00:02:40,000
+What will we do in the notebook?
+Load the MNIST dataset, build a Softmax Classifier, train it to recognize numbers, and test if it works.
+
+9
+00:02:40,000 --> 00:03:00,000
+Building a Simple Neural Network
+We are teaching a computer to recognize patterns by building a simple neural network with one hidden layer.
+
+10
+00:03:00,000 --> 00:03:20,000
+What is a Neural Network?
+A neural network is like a tiny brain inside a computer that looks at data, finds patterns, and makes decisions.
+
+11
+00:03:20,000 --> 00:03:40,000
+What is a Hidden Layer?
+A hidden layer helps break down complex problems step by step, making it easier to recognize and understand.
+
+12
+00:03:40,000 --> 00:04:00,000
+How do we train the computer?
+We show it some data, it guesses, and if wrong, we correct it. After practicing, it becomes really good at guessing.
+
+13
+00:04:00,000 --> 00:04:20,000
+What will we do in the notebook?
+Build a simple neural network, give it some data to learn from, train it, and test it to see if it works.
+
+14
+00:04:20,000 --> 00:04:40,000
+Making a Smarter Neural Network
+We are making a better and smarter brain for the computer with many neurons working together.
+
+15
+00:04:40,000 --> 00:05:00,000
+What are Neurons?
+Neurons are tiny workers inside a neural network that take information, process it, and pass it along.
+
+16
+00:05:00,000 --> 00:05:20,000
+Why More Neurons?
+More neurons mean the network understands more details, learns better, and can solve harder problems.
+
+17
+00:05:20,000 --> 00:05:40,000
+How do we train it?
+We give it some data, let the neurons think, correct it if wrong, and after practice, it gets really smart.
+
+18
+00:05:40,000 --> 00:06:00,000
+What will we do in the notebook?
+Build a bigger neural network with more neurons, feed it data to learn from, train it, and test it to see how smart it is.

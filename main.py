@@ -158,7 +158,27 @@ def main():
         criterion = nn.CrossEntropyLoss()
         optimizer = optim.SGD(model.parameters(), lr=0.01)
 
-        final_project.train_model(model, criterion, optimizer, train_loader)  # Call the function
+        losses, accuracies = final_project.train_model(model, criterion, optimizer, train_loader)  # Call the function
+        
+        # Plotting the loss and accuracy
+        plt.figure(figsize=(10, 5))
+        plt.subplot(1, 2, 1)
+        plt.plot(range(1, len(losses) + 1), losses, color='red', label='Cost (Loss)')
+        plt.title('Cost (Loss) vs Epochs')
+        plt.xlabel('Epochs')
+        plt.ylabel('Cost (Loss)')
+        plt.legend()
+
+        plt.subplot(1, 2, 2)
+        plt.plot(range(1, len(accuracies) + 1), accuracies, color='blue', label='Accuracy')
+        plt.title('Accuracy vs Epochs')
+        plt.xlabel('Epochs')
+        plt.ylabel('Accuracy (%)')
+        plt.legend()
+
+        plt.tight_layout()
+        plt.show()
+
 
     else:
         print("Invalid choice. Please select a number between 1 and 6.")
