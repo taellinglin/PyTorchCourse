@@ -539,6 +539,8 @@ A CNN has **layers** that help it learn step by step:
 
 By the end, we’ll see how **CNNs help computers recognize pictures just like humans do!** 🧠✨  
 
+---
+
 # 🖼️ Teaching a Computer to See Small Pictures! 🤖  
 
 ## 1️⃣ What is a CNN? 🧠  
@@ -558,6 +560,8 @@ Small images are **harder to understand** because they have **fewer details**!
 - **Understand why CNNs work well, even with tiny pictures!** 🚀  
 
 By the end, we’ll see how **computers can recognize even small images with AI!** 🧠✨  
+
+---
 
 # 🖼️ Teaching a Computer to See Small Pictures with Batches! 🤖  
 
@@ -582,24 +586,23 @@ Small images have **fewer details**, so the CNN must **work harder to find patte
 
 By the end, we’ll see how **CNNs learn faster and smarter with batches!** 🧠✨  
 
-# 🎌 Teaching a Computer to Recognize Anime Pictures! 🤖  
+---
+
+# 🖼️ Teaching a Computer to Recognize Handwritten Numbers! 🤖  
 
 ## 1️⃣ What is a CNN? 🧠  
 A **Convolutional Neural Network (CNN)** is a smart AI that **looks at pictures and learns patterns**! 🔍  
-- It **finds shapes, colors, and details** in images. 🎭  
-- It helps AI recognize **characters, faces, and styles**! 🎨  
+- It **finds shapes, lines, and curves** in images. 🔢  
+- It helps AI recognize **digits and handwritten numbers**! ✏️  
 
-## 2️⃣ Why Anime? 🎎  
-Anime images are **unique** because they have:  
-- **Bright colors** 🎨  
-- **Big expressive eyes** 👀  
-- **Different art styles** 🖼️  
-
-A CNN can learn to **recognize different anime characters** just like it can recognize real-world objects!  
+## 2️⃣ Why Handwritten Numbers? 🔢  
+Handwritten numbers are **tricky** because everyone writes differently!  
+- A CNN must **learn the different ways** people write the same number.  
+- This helps it **recognize digits** even if they are messy. 💡  
 
 ## 3️⃣ What Will We Do in This Notebook? 📝  
 - **Train a CNN to classify images of handwritten numbers.** 🏗️  
-- **See how it learns to recognize different characters.** 🔎  
+- **See how it learns to recognize different digits.** 🔎  
 - **Understand how AI can analyze images of handwritten numbers!** 🚀  
 
-By the end, we’ll see how **computers can recognize handwritten characters just like we do!** 🧠✨  
+By the end, we’ll see how **computers can recognize handwritten numbers just like we do!** 🧠✨  
