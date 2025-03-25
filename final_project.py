@@ -85,7 +85,7 @@ def display_predictions(model, data_loader, num_samples=6):
 
 
 # Training function with PyTorch functions
-def train_model(model, criterion, optimizer, train_loader, epochs=5):
+def train_model(model, criterion, optimizer, train_loader, epochs=32):
     """Train the CNN using PyTorch functions"""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
