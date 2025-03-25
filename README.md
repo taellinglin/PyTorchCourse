@@ -600,6 +600,6 @@ A CNN can learn to **recognize different anime characters** just like it can rec
 ## 3️⃣ What Will We Do in This Notebook? 📝  
 - **Train a CNN to classify images of handwritten numbers.** 🏗️  
 - **See how it learns to recognize different characters.** 🔎  
-- **Understand how AI can analyze anime art!** 🚀  
+- **Understand how AI can analyze images of handwritten numbers!** 🚀  
 
 By the end, we’ll see how **computers can recognize anime characters just like we do!** 🧠✨  
