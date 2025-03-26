@@ -5,11 +5,11 @@ from torch import optim
 from torch import autograd
 from torch.utils.data import Dataset, DataLoader
 import torchvision.transforms as transforms
-import torchvision.datasets as datasets  # Added import for datasets
+import torchvision.datasets as datasets
+import matplotlib.pyplot as plt
 
 def main():
     import logistic_regression  # Import the module at the beginning
-    import matplotlib.pyplot as plt  # Added import for plotting
     print("Select a module to run (1-6):")
 
     # Function to plot data
@@ -21,7 +21,6 @@ def main():
         plt.colorbar(label='Output Class')
         plt.show()
 
-
     print("1. Logistic Regression")
     print("2. Softmax Regression")
     print("3. Shallow Neural Networks")
@@ -30,21 +29,7 @@ def main():
     print("6. Final Project")
     choice = input("Enter the module number (1-6): ")
     
-    # Create sample data for logistic regression
-    x_data = torch.tensor(np.random.rand(100, 2), dtype=torch.float32)
-    y_data = torch.tensor(np.random.randint(0, 2, (100, 1)), dtype=torch.float32)
 
-    # Plotting the logistic regression data
-    plot_data(x_data.numpy(), y_data.numpy(), 'Logistic Regression Input Data')
-
-
-    x_data = torch.tensor(np.random.rand(100, 2), dtype=torch.float32)
-    y_data = torch.tensor(np.random.randint(0, 2, (100, 1)), dtype=torch.float32)
-
-    # Initialize model, criterion, and optimizer for logistic regression
-    model = logistic_regression.LogisticRegressionModel(input_size=2)
-    criterion = nn.BCELoss()
-    optimizer = optim.SGD(model.parameters(), lr=0.01)
 
     if choice == '1':
         logistic_regression.train_model(model, criterion, optimizer, x_data, y_data, epochs=1000)  # Call the function
@@ -146,14 +131,41 @@ def main():
 
 
     elif choice == '6':
+        print("Choose dataset option:")
+        print("1. MNIST Dataset")
+        print("2. Custom Dataset")
+        dataset_choice = input("Enter 1 or 2: ")
+
+        if dataset_choice == '1':
+            # MNIST Dataset
+            transform = transforms.Compose([transforms.ToTensor()])
+            train_dataset = datasets.MNIST(root='./data', train=True, transform=transform, download=True)
+            train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=64, shuffle=True)
+            
+        elif dataset_choice == '2':
+            # Custom Dataset Example
+            class CustomDataset(Dataset):
+                def __init__(self, data, labels, transform=None):
+                    self.data = data
+                    self.labels = labels
+                    self.transform = transform
+                
+                def __len__(self):
+                    return len(self.data)
+                
+                def __getitem__(self, idx):
+                    sample = self.data[idx]
+                    label = self.labels[idx]
+                    if self.transform:
+                        sample = self.transform(sample)
+                    return sample, label
+            
+            
+        else:
+            print("Invalid choice. Please select 1 or 2.")
+            return
+
         import final_project
-        # MNIST Dataset
-        transform = transforms.Compose([transforms.ToTensor()])
-
-        transform = transforms.Compose([transforms.ToTensor()])
-        train_dataset = datasets.MNIST(root='./data', train=True, transform=transform, download=True)
-        train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=64, shuffle=True)
-
         model = final_project.FinalCNN()
         criterion = nn.CrossEntropyLoss()
         optimizer = optim.SGD(model.parameters(), lr=0.01)
