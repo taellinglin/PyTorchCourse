@@ -1,0 +1,43 @@
+import fontforge
+import random
+import math
+
+# Function to make strokes thinner by scaling down the strokes
+def make_strokes_thinner(glyph, scale_factor=0.8):
+    # Scaling the glyph to make the strokes thinner
+    glyph.transform((scale_factor, 0, 0, scale_factor, 0, 0))
+
+# Function to introduce small random bends to the stroke of a glyph
+def add_bends_to_glyph(glyph, max_bend=10):
+    # Loop through the contours of the glyph
+    for contour in glyph.contours:
+        for point in contour:
+            # Add small random variations in the x and y coordinates
+            random_bend_x = random.uniform(-max_bend, max_bend)
+            random_bend_y = random.uniform(-max_bend, max_bend)
+            point.x += random_bend_x
+            point.y += random_bend_y
+
+# Main function to process the font
+def process_font(input_font_path, output_font_path):
+    # Open the font
+    font = fontforge.open(input_font_path)
+
+    # Loop through all glyphs in the font
+    for glyph in font.glyphs():
+        # Make strokes thinner
+        make_strokes_thinner(glyph)
+        
+        # Add bends to simulate handwritten strokes
+        add_bends_to_glyph(glyph)
+
+    # Save the processed font
+    font.save(output_font_path)
+
+# Usage
+input_font = "path_to_your_input_font.ttf"  # Replace with your input font path
+output_font = "path_to_your_output_font.ttf"  # Replace with desired output font path
+
+# Process the font
+process_font(input_font, output_font)
+print(f"Font processed and saved as {output_font}")

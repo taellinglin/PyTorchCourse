@@ -7,7 +7,7 @@ from torch.utils.data import Dataset, DataLoader
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 import matplotlib.pyplot as plt
-
+from final_project import FinalCNN
 def main():
     import logistic_regression  # Import the module at the beginning
     print("Select a module to run (1-6):")
@@ -165,12 +165,11 @@ def main():
             print("Invalid choice. Please select 1 or 2.")
             return
 
-        import final_project
-        model = final_project.FinalCNN()
+        model = FinalCNN()
         criterion = nn.CrossEntropyLoss()
         optimizer = optim.SGD(model.parameters(), lr=0.01)
 
-        losses, accuracies = final_project.train_model(model, criterion, optimizer, train_loader)  # Call the function
+        losses, accuracies = model.train_model(model, criterion, optimizer, train_loader)  # Call the function
         
         # Plotting the loss and accuracy
         plt.figure(figsize=(10, 5))

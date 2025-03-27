@@ -217,40 +217,42 @@ def display_predictions(model, data_loader, num_samples=6, font_path='./Daemon.o
     plt.show()
 
 
-# Choose Dataset
-dataset_options = get_dataset_options()
+if __name__ == "__main__":
+    # Choose Dataset
+    dataset_options = get_dataset_options()
 
-if dataset_options:
-    # Dynamically display dataset options
-    print("Available datasets:")
-    for i, option in enumerate(dataset_options, 1):
-        print(f"{i}. {option}")
+    if dataset_options:
+        # Dynamically display dataset options
+        print("Available datasets:")
+        for i, option in enumerate(dataset_options, 1):
+            print(f"{i}. {option}")
 
-    # User input to choose a dataset
-    dataset_index = int(input(f"Enter the number corresponding to the dataset (1-{len(dataset_options)}): ")) - 1
+        # User input to choose a dataset
+        dataset_index = int(input(f"Enter the number corresponding to the dataset (1-{len(dataset_options)}): ")) - 1
 
-    # Ensure valid selection
-    if 0 <= dataset_index < len(dataset_options):
-        dataset_name = dataset_options[dataset_index]
-        print(f"You selected: {dataset_name}")
+        # Ensure valid selection
+        if 0 <= dataset_index < len(dataset_options):
+            dataset_name = dataset_options[dataset_index]
+            print(f"You selected: {dataset_name}")
+        else:
+            print("❌ Invalid selection.")
+            dataset_name = None
     else:
-        print("❌ Invalid selection.")
+        print("❌ No datasets found in the data folder.")
         dataset_name = None
-else:
-    print("❌ No datasets found in the data folder.")
-    dataset_name = None
-train_dataset = choose_dataset(dataset_name)
-train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 
-# Model, Criterion, and Optimizer
-model = FinalCNN()
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(model.parameters(), lr=0.005)
+        train_dataset = choose_dataset(dataset_name)
+        train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 
-display_predictions(model, train_loader)
+        # Model, Criterion, and Optimizer
+        model = FinalCNN()
+        criterion = nn.CrossEntropyLoss()
+        optimizer = optim.SGD(model.parameters(), lr=0.005)
 
-# Train the Model
-losses, accuracies = train_model(model, criterion, optimizer, train_loader, epochs=256)
+        display_predictions(model, train_loader)
 
-# Display sample predictions
-display_predictions(model, train_loader)
+        # Train the Model
+        losses, accuracies = train_model(model, criterion, optimizer, train_loader, epochs=256)
+
+        # Display sample predictions
+        display_predictions(model, train_loader)
