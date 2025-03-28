@@ -5,7 +5,7 @@
 # Over the course of training:
 ![OCRZXXXed_TrainingTime](https://github.com/user-attachments/assets/1c14385d-50ad-4548-8666-d57054be19f4)
 
-# Computer's answering:
+# Computers answering:
 ![OCRZXXXed_AfterTrain](https://github.com/user-attachments/assets/3094a1b4-0eed-4016-9eea-5d306c279244)
 
 
