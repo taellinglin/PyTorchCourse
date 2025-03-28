@@ -1,5 +1,12 @@
+![OCR_Font_Identify](https://github.com/user-attachments/assets/ac4b03ba-a654-4313-b4b4-adbc1345f6ec)
+![OCR_AfterTrain](https://github.com/user-attachments/assets/9e400ece-b6be-4251-bb58-5f2740f38dcf)
+![OCRZXXXed_BeforeTrain](https://github.com/user-attachments/assets/1e339387-e32a-4a58-b026-a2336a24eca5)
+![OCRZXXXed_TrainingTime](https://github.com/user-attachments/assets/1c14385d-50ad-4548-8666-d57054be19f4)
+![OCRZXXXed_AfterTrain](https://github.com/user-attachments/assets/3094a1b4-0eed-4016-9eea-5d306c279244)
+![OCR_Font_Training](https://github.com/user-attachments/assets/9c4980eb-6c46-4209-b916-05ac7a780484)
 
-# 🧠 **What is Logistic Regression?**
+# 🧠![OCR_BeforeTrain](https://github.com/user-attachments/assets/b74206e6-cc26-4ad6-91f5-836ab6496e74)
+ **What is Logistic Regression?**
 Imagine you have a **robot** that tries to guess if a fruit is an 🍎 **apple** or a 🍌 **banana**. 
 - The robot uses **Logistic Regression** to make its guess.
 - It looks at things like the fruit’s **color**, **shape**, and **size** to decide.
